@@ -1,3 +1,5 @@
+import { Car } from '../src/domain/Car';
+
 describe('Car Class 단위 테스트', () => {
   let car;
 

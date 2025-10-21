@@ -1,3 +1,5 @@
+import { Game } from '../src/domain/Game';
+
 describe('Game Class 단위 테스트', () => {
   let game;
 
