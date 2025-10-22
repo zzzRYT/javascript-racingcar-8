@@ -18,8 +18,8 @@ class App {
     const gameRound = await Console.readLineAsync(
       `${INPUT_DESCRIPTION.ROUND}\n`
     );
-    Console.print(carNames);
-    Console.print(gameRound);
+    this.game.setting(carNames, gameRound);
+    Console.print(this.game.cars);
   }
 }
 
