@@ -10,6 +10,10 @@ export class Car {
     this.move = 0;
   }
 
+  getName() {
+    return this.name;
+  }
+
   getMove() {
     return this.move;
   }

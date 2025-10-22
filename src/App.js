@@ -14,12 +14,18 @@ class App {
   }
 
   async run() {
-    const carNames = await Console.readLineAsync(`${INPUT_DESCRIPTION.CAR}\n`);
-    const gameRound = await Console.readLineAsync(
-      `${INPUT_DESCRIPTION.ROUND}\n`
-    );
-    this.game.setting(carNames, gameRound);
-    Console.print(this.game.cars);
+    try {
+      const carNames = await Console.readLineAsync(
+        `${INPUT_DESCRIPTION.CAR}\n`
+      );
+      const gameRound = await Console.readLineAsync(
+        `${INPUT_DESCRIPTION.ROUND}\n`
+      );
+      this.game.setting(carNames, gameRound);
+      this.game.start();
+    } catch (error) {
+      throw error;
+    }
   }
 }
 
