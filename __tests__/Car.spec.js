@@ -20,7 +20,17 @@ describe('Car Class 단위 테스트', () => {
 
   test('무작위 수가 4 이상일 경우 전진한다.', () => {
     const greaterThanFour = 5;
+    const curMove = getCarMove();
+    setCarMove(greaterThanFour);
+    const newMove = getCarMove();
+    expect(newMove).toBeEqual(curMove + 1);
   });
 
-  test('무작위 수가 4 미만일 경우 정지한다.', () => {});
+  test('무작위 수가 4 미만일 경우 정지한다.', () => {
+    const greaterThanFour = 5;
+    const curMove = getCarMove();
+    setCarMove(greaterThanFour);
+    const newMove = getCarMove();
+    expect(newMove).toBeEqual(curMove);
+  });
 });
