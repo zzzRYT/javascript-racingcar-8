@@ -2,8 +2,15 @@ import { Console } from '@woowacourse/mission-utils';
 import { WINNER_DESCRIPTION } from '../../constants.js';
 
 export class View {
-  displayRound(name, move) {
-    Console.print(`${name} : ${this.#repeatMoveBar(move)}`);
+  displayResult() {
+    Console.print('\n실행 결과');
+  }
+
+  displayRound(cars) {
+    cars.forEach((car) => {
+      Console.print(`${car.name} : ${this.#repeatMoveBar(car.move)}`);
+    });
+    Console.print('');
   }
 
   displayWinners(winners) {
@@ -11,7 +18,7 @@ export class View {
     if (this.#isWinners(winners)) {
       winnerString = winners.join(', ');
     }
-    return `${WINNER_DESCRIPTION} : ${winnerString}`;
+    Console.print(`${WINNER_DESCRIPTION} : ${winnerString}`);
   }
 
   #repeatMoveBar(move) {

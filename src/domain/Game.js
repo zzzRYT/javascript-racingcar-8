@@ -28,19 +28,17 @@ export class Game {
   }
 
   start() {
+    this.getView().displayResult();
     for (let i = 0; i < this.getRound(); i++) {
-      this.getCars().forEach((car) => {
-        this.playRound(car);
-      });
+      this.playRound(this.getCars());
     }
+    this.getView().displayWinners(['pobi']);
   }
 
-  playRound(car) {
-    car.setMove();
-    this.callView(car.getName(), car.getMove());
-  }
-
-  callView(name, move) {
-    this.getView().displayRound(name, move);
+  playRound(cars) {
+    cars.forEach((car) => {
+      car.setMove();
+    });
+    this.getView().displayRound(cars);
   }
 }
