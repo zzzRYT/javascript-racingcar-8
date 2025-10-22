@@ -1,5 +1,5 @@
 import { MissionUtils } from '@woowacourse/mission-utils';
-import { MAX_LENGTH_CAR_NAME } from '../../constants';
+import { MAX_LENGTH_CAR_NAME } from '../../constants.js';
 
 export class Car {
   constructor(name) {
