@@ -5,9 +5,10 @@ import { SEPARATOR } from '../../constants.js';
 
 export class Game {
   constructor() {
+    this.view = new View();
     this.cars = [];
     this.round = 0;
-    this.view = new View();
+    this.winner = [];
   }
 
   getCars() {
@@ -18,27 +19,23 @@ export class Game {
     return this.round;
   }
 
-  getView() {
-    return this.view;
-  }
-
   setting(carNames, round) {
     this.cars = carNames.split(SEPARATOR).map((name) => new Car(name));
     this.round = Number(round);
   }
 
   start() {
-    this.getView().displayResult();
+    this.view.displayResult();
     for (let i = 0; i < this.getRound(); i++) {
       this.playRound(this.getCars());
     }
-    this.getView().displayWinners(['pobi']);
+    this.view.displayWinners(['pobi']);
   }
 
   playRound(cars) {
     cars.forEach((car) => {
       car.setMove();
     });
-    this.getView().displayRound(cars);
+    this.view.displayRound(cars);
   }
 }

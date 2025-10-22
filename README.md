@@ -22,7 +22,7 @@
 
 - [ ] Game Class
 
-  - [ ] 게임을 생성한다. -> Car, Track 생성
+  - [ ] 게임을 생성한다. -> Car, View 생성
   - [ ] 각 자동차에 대한
 
 - [ ] Car Class
