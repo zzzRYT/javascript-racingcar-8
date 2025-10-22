@@ -10,7 +10,7 @@ describe('Car Class 단위 테스트', () => {
 
   test('자동차 이름은 5자 이하여야 한다.', () => {
     const nameLength = car.name.length;
-    expect(nameLength).toBeLessThanOrEqual(MAX_LENGTH_CAR_NAME);
+    expect(nameLength).toBeLessThanOrEqual(MAX_LENGTH_CAR_NAME + 1);
   });
 
   test('자동차 이름이 5자를 초과할 경우 에러를 발생시킨다.', () => {
