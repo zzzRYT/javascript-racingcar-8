@@ -1,4 +1,3 @@
-import { Car } from '../src/domain/Car';
 import { View } from '../src/domain/View';
 import { getLogSpy } from './ApplicationTest';
 

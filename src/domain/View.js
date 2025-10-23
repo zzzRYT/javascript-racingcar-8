@@ -2,7 +2,7 @@ import { Console } from '@woowacourse/mission-utils';
 import { WINNER_DESCRIPTION } from '../../constants.js';
 
 export class View {
-  displayResult() {
+  displayResultStart() {
     Console.print('\n실행 결과');
   }
 

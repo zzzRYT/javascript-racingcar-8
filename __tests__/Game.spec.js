@@ -1,4 +1,3 @@
-import { Console } from '@woowacourse/mission-utils';
 import { Game } from '../src/domain/Game';
 
 describe('Game Class 단위 테스트', () => {
@@ -21,7 +20,7 @@ describe('Game Class 단위 테스트', () => {
 
   test.each([
     {
-      description: '우승자가 한 명일 경우, 우승자를 배열에 추가한다.',
+      description: '우승자에 대한 배열을 반환한다.',
       cars: [
         { name: 'pobi', move: 4 },
         { name: 'woni', move: 3 },
@@ -31,7 +30,7 @@ describe('Game Class 단위 테스트', () => {
     },
     {
       description:
-        '우승자가 한 명 이상일 경우, 여러명의 우승자를 배열에 추가한다.',
+        '우승자가 한 명 이상일 경우, 여러명의 우승자를 배열에 추가해 반환한다..',
       cars: [
         { name: 'pobi', move: 4 },
         { name: 'woni', move: 4 },
@@ -42,8 +41,8 @@ describe('Game Class 단위 테스트', () => {
   ])('$description', ({ cars, expectedWinners }) => {
     game.cars = cars;
 
-    game.endGame();
+    const winners = game.getWinners();
 
-    expect(game.winners).toEqual(expectedWinners);
+    expect(winners).toEqual(expectedWinners);
   });
 });
