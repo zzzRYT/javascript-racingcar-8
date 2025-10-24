@@ -10,11 +10,6 @@ class App {
     this.view = new View();
   }
 
-  async userInput() {
-    const userInput = await Console.readLineAsync(INPUT_DESCRIPTION);
-    return userInput;
-  }
-
   async run() {
     try {
       const carNames = await Console.readLineAsync(
@@ -38,6 +33,7 @@ class App {
       throw error;
     }
   }
+  ㅎ;
 }
 
 export default App;

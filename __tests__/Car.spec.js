@@ -11,9 +11,15 @@ describe('Car Class 단위 테스트', () => {
     car = new Car('pobi');
   });
 
+  test('자동차 이름은 1자 이상이어야 한다.', () => {
+    const name = '';
+    expect(() => new Car(name)).toThrow();
+  });
+
   test('자동차 이름은 5자 이하여야 한다.', () => {
-    const nameLength = car.name.length;
-    expect(nameLength).toBeLessThanOrEqual(MAX_LENGTH_CAR_NAME + 1);
+    car.name = 'pobi';
+    const nameLength = car.getName().length;
+    expect(nameLength).toBeLessThanOrEqual(MAX_LENGTH_CAR_NAME);
   });
 
   test('자동차 이름이 5자를 초과할 경우 에러를 발생시킨다.', () => {

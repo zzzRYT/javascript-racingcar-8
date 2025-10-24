@@ -35,7 +35,7 @@ describe('View Class 단위 테스트', () => {
       winners: ['pobi', 'jun'],
       result: '최종 우승자 : pobi, jun',
     },
-  ])('$description "$result" 형식으로 출력한다.', ({ winners, result }) => {
+  ])('$description', ({ winners, result }) => {
     const logSpy = getLogSpy();
 
     view.displayWinners(winners);

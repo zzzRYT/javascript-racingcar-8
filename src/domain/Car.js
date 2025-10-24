@@ -3,8 +3,8 @@ import { MAX_LENGTH_CAR_NAME } from '../../constants.js';
 
 export class Car {
   constructor(name) {
-    if (name.length > MAX_LENGTH_CAR_NAME) {
-      throw new Error('[ERROR] : 자동차 이름은 5자 이하여야 합니다.');
+    if (name.length <= 0 || name.length > MAX_LENGTH_CAR_NAME) {
+      throw new Error('[ERROR] : 자동차 이름은 1자 이상, 5자 이하여야 합니다.');
     }
     this.name = name;
     this.move = 0;

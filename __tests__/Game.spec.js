@@ -1,4 +1,4 @@
-import { Game } from '../src/domain/Game';
+import { Game, ValidationCar } from '../src/domain/Game';
 
 describe('Game Class 단위 테스트', () => {
   let game;
@@ -44,5 +44,19 @@ describe('Game Class 단위 테스트', () => {
     const winners = game.getWinners();
 
     expect(winners).toEqual(expectedWinners);
+  });
+});
+
+describe('ValidationCar Class 단위 테스트', () => {
+  let validationCar;
+
+  beforeEach(() => {
+    validationCar = new ValidationCar();
+  });
+
+  test('자동차가 없다면 에러를 false를 return 한다', () => {
+    const cars = ['pobi'];
+
+    expect(validationCar.isEmpty(cars)).toEqual(false);
   });
 });

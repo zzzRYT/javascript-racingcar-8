@@ -4,9 +4,11 @@ import { View } from './View.js';
 import { SEPARATOR } from '../../constants.js';
 
 export class Game {
+  #validation;
   constructor() {
     this.cars = [];
     this.round = 0;
+    this.#validation = new ValidationGame();
   }
 
   getCars() {
@@ -20,6 +22,10 @@ export class Game {
   setting(carNames, round) {
     this.cars = carNames.split(SEPARATOR).map((name) => new Car(name));
     this.round = Number(round);
+
+    if (this.#validation.isDuplicated(this.cars)) {
+      throw new Error('[ERROR] : 자동차 이름이 중복되었습니다.');
+    }
   }
 
   playRound() {
@@ -43,5 +49,14 @@ export class Game {
   #searchMax() {
     const maxMoves = this.cars.map((car) => car.move);
     return Math.max(...maxMoves);
+  }
+}
+
+export class ValidationGame {
+  isDuplicated(cars) {
+    const names = cars.map((car) => car.name);
+    const nameSet = new Set(names);
+
+    return names.length !== nameSet.size;
   }
 }
