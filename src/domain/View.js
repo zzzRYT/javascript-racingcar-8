@@ -1,4 +1,5 @@
 import { Console } from '@woowacourse/mission-utils';
+
 import { WINNER_DESCRIPTION } from '../../constants.js';
 
 export class View {

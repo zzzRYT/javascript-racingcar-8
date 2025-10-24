@@ -1,4 +1,4 @@
-import { Game, ValidationCar } from '../src/domain/Game';
+import { Game, validationGame } from '../src/domain/Game';
 
 describe('Game Class 단위 테스트', () => {
   let game;
@@ -47,16 +47,23 @@ describe('Game Class 단위 테스트', () => {
   });
 });
 
-describe('ValidationCar Class 단위 테스트', () => {
+describe('ValidationGame 단위 테스트', () => {
   let validationCar;
 
   beforeEach(() => {
-    validationCar = new ValidationCar();
+    validationCar = validationGame();
   });
 
-  test('자동차가 없다면 에러를 false를 return 한다', () => {
-    const cars = ['pobi'];
+  test('자동차가 중복된 경우 에러를 발생시킨다.', () => {
+    const cars = [{ name: 'pobi' }, { name: 'pobi' }];
 
-    expect(validationCar.isEmpty(cars)).toEqual(false);
+    expect(() => validationCar.duplicatedCar(cars)).toThrow();
   });
+
+  test.each([{ round: 0 }, { round: -1 }, { round: -10 }])(
+    'round가 0 이하인 경우 에러를 발생시킨다. : $round',
+    ({ round }) => {
+      expect(() => validationCar.roundSetting(round)).toThrow();
+    }
+  );
 });

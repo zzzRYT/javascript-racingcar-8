@@ -33,7 +33,6 @@ class App {
       throw error;
     }
   }
-  ㅎ;
 }
 
 export default App;

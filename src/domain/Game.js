@@ -1,5 +1,4 @@
 import { Car } from './Car.js';
-import { View } from './View.js';
 
 import { SEPARATOR } from '../../constants.js';
 
@@ -21,7 +20,7 @@ export class Game {
   setting(carNames, round) {
     this.cars = carNames.split(SEPARATOR).map((name) => new Car(name.trim()));
     this.round = Number(round);
-    this.validation.duplicated(this.cars);
+    this.validation.duplicatedCar(this.cars);
     this.validation.roundSetting(this.round);
   }
 
@@ -49,8 +48,8 @@ export class Game {
   }
 }
 
-function validationGame() {
-  const duplicated = (cars) => {
+export function validationGame() {
+  const duplicatedCar = (cars) => {
     const names = cars.map((car) => car.name);
     const nameSet = new Set(names);
 
@@ -64,6 +63,5 @@ function validationGame() {
       throw new Error('[ERROR] : 라운드 설정이 필요합니다.');
     }
   };
-
-  return { duplicated, roundSetting };
+  return { duplicatedCar, roundSetting };
 }
