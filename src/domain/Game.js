@@ -4,11 +4,10 @@ import { View } from './View.js';
 import { SEPARATOR } from '../../constants.js';
 
 export class Game {
-  #validation;
   constructor() {
     this.cars = [];
     this.round = 0;
-    this.#validation = new ValidationGame();
+    this.validation = validationGame();
   }
 
   getCars() {
@@ -20,12 +19,10 @@ export class Game {
   }
 
   setting(carNames, round) {
-    this.cars = carNames.split(SEPARATOR).map((name) => new Car(name));
+    this.cars = carNames.split(SEPARATOR).map((name) => new Car(name.trim()));
     this.round = Number(round);
-
-    if (this.#validation.isDuplicated(this.cars)) {
-      throw new Error('[ERROR] : 자동차 이름이 중복되었습니다.');
-    }
+    this.validation.duplicated(this.cars);
+    this.validation.roundSetting(this.round);
   }
 
   playRound() {
@@ -52,11 +49,21 @@ export class Game {
   }
 }
 
-export class ValidationGame {
-  isDuplicated(cars) {
+function validationGame() {
+  const duplicated = (cars) => {
     const names = cars.map((car) => car.name);
     const nameSet = new Set(names);
 
-    return names.length !== nameSet.size;
-  }
+    if (names.length !== nameSet.size) {
+      throw new Error('[ERROR] : 자동차 이름이 중복되었습니다.');
+    }
+  };
+
+  const roundSetting = (round) => {
+    if (round <= 0) {
+      throw new Error('[ERROR] : 라운드 설정이 필요합니다.');
+    }
+  };
+
+  return { duplicated, roundSetting };
 }

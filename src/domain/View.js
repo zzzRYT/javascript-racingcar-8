@@ -15,7 +15,7 @@ export class View {
 
   displayWinners(winners) {
     let winnerString = winners[0];
-    if (this.#isWinners(winners)) {
+    if (this.#isMultipleWinner(winners)) {
       winnerString = winners.join(', ');
     }
     Console.print(`${WINNER_DESCRIPTION} : ${winnerString}`);
@@ -26,10 +26,7 @@ export class View {
     return moves;
   }
 
-  #isWinners(winners) {
-    if (winners.length > 1) {
-      return true;
-    }
-    return false;
+  #isMultipleWinner(winners) {
+    return winners.length > 1;
   }
 }
