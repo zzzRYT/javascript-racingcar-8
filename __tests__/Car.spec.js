@@ -1,4 +1,5 @@
 import { MissionUtils } from '@woowacourse/mission-utils';
+
 import { Car, validationCar } from '../src/domain/Car';
 
 jest.mock('@woowacourse/mission-utils');

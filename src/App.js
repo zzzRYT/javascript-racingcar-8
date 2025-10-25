@@ -1,13 +1,11 @@
 import { Console } from '@woowacourse/mission-utils';
 
 import { INPUT_DESCRIPTION } from '../constants.js';
-import { Game } from './domain/Game.js';
-import { View } from './domain/View.js';
 
 class App {
-  constructor() {
-    this.game = new Game();
-    this.view = new View();
+  constructor(game, view) {
+    this.game = game;
+    this.view = view;
   }
 
   async run() {

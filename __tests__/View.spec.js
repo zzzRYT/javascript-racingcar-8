@@ -1,5 +1,6 @@
-import { View } from '../src/domain/View';
 import { getLogSpy } from './ApplicationTest';
+
+import { View } from '../src/domain/View';
 
 describe('View Class 단위 테스트', () => {
   let view;
