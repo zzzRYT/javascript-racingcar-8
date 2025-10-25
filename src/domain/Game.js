@@ -43,8 +43,8 @@ export class Game {
   }
 
   #searchMax() {
-    const maxMoves = this.cars.map((car) => car.move);
-    return Math.max(...maxMoves);
+    const eachCarMove = this.cars.map((car) => car.move);
+    return Math.max(...eachCarMove);
   }
 }
 

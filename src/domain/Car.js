@@ -19,16 +19,13 @@ export class Car {
 
   setMove() {
     const randomNumber = MissionUtils.Random.pickNumberInRange(0, 9);
-    if (this.#isMove(randomNumber)) {
+    if (this.#canMove(randomNumber)) {
       this.move = this.move + 1;
     }
   }
 
-  #isMove(randomNumber) {
-    if (randomNumber >= 4) {
-      return true;
-    }
-    return false;
+  #canMove(randomNumber) {
+    return randomNumber >= 4;
   }
 }
 
