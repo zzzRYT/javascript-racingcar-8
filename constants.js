@@ -15,9 +15,19 @@ export const SEPARATOR = ',';
  * Car constants
  */
 export const MAX_LENGTH_CAR_NAME = 5;
+export const NAME_ALLOWED = /^[ㄱ-ㅎ가-힣a-zA-Z0-9]*$/;
 
 /**
  * View constants
  */
 export const WINNER_DESCRIPTION = '최종 우승자';
 export const WINNER_SEPARATOR = ', ';
+
+/**
+ * utils constants
+ */
+export const REGEX = {
+  KO: /[ㄱ-ㅎ|가-힣|ㅏ-ㅣ]/g,
+  EN: /[a-zA-Z]/g,
+  NUM: /[0-9]/g,
+};

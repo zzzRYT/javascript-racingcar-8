@@ -7,7 +7,7 @@ describe('Game Class 단위 테스트', () => {
     game = new Game();
   });
 
-  test('게임 세팅을 통해서 전달받은 자동차와, 차수를 저장한다.', () => {
+  test('게임 세팅을 통해서 전달받은 자동차와, round 수를 저장한다.', () => {
     const cars = 'pobi,woni';
     const round = '5';
 

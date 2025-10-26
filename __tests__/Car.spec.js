@@ -43,7 +43,14 @@ describe('ValidationCar 단위 테스트', () => {
   ])(
     '자동자 이름이 1이하, 5이상인 경우 에러를 발생시킨다.: $name',
     ({ name }) => {
-      expect(() => validation.nameLength(name)).toThrow();
+      expect(() => validation.nameLength(name)).toThrow('[ERROR]');
+    }
+  );
+
+  test.each([{ name: '&*$@' }, { name: 'pobi^' }])(
+    '자동차 이름은 한글 또는 영문이 아니면 에러가 발생한다. $name',
+    ({ name }) => {
+      expect(() => validation.nameAllowed(name)).toThrow('[ERROR]');
     }
   );
 });
