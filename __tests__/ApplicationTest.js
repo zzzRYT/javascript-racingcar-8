@@ -1,5 +1,7 @@
 import App from '../src/App.js';
 import { MissionUtils } from '@woowacourse/mission-utils';
+import { View } from '../src/domain/View.js';
+import { Game } from '../src/domain/Game.js';
 
 export const mockQuestions = (inputs) => {
   MissionUtils.Console.readLineAsync = jest.fn();
@@ -25,6 +27,14 @@ export const getLogSpy = () => {
 };
 
 describe('자동차 경주', () => {
+  let app;
+
+  beforeEach(() => {
+    const game = new Game();
+    const view = new View();
+    app = new App(game, view);
+  });
+
   test('기능 테스트', async () => {
     // given
     const MOVING_FORWARD = 4;
@@ -36,8 +46,6 @@ describe('자동차 경주', () => {
     mockQuestions(inputs);
     mockRandoms([MOVING_FORWARD, STOP]);
 
-    // when
-    const app = new App();
     await app.run();
 
     // then
@@ -50,9 +58,6 @@ describe('자동차 경주', () => {
     // given
     const inputs = ['pobi,javaji'];
     mockQuestions(inputs);
-
-    // when
-    const app = new App();
 
     // then
     await expect(app.run()).rejects.toThrow('[ERROR]');

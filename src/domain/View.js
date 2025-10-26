@@ -15,7 +15,7 @@ export class View {
   }
 
   displayWinners(winners) {
-    const winnerString = this.#combineMultipleWinner;
+    const winnerString = this.#combineMultipleWinner(winners);
     Console.print(`${WINNER_DESCRIPTION} : ${winnerString}`);
   }
 
