@@ -1,6 +1,6 @@
 import { Car } from './Car.js';
 
-import { ERROR, SEPARATOR } from '../../constants.js';
+import { CAR_NAME_SEPARATOR, ERROR } from '../../constants.js';
 
 export class Game {
   constructor() {
@@ -18,8 +18,9 @@ export class Game {
   }
 
   setting(carNames, round) {
-    this.cars = carNames.split(SEPARATOR).map((name) => new Car(name.trim()));
+    this.cars = this.#getNewCars(carNames);
     this.round = Number(round);
+    this.validation.ableCarCountToPlay(this.cars);
     this.validation.duplicatedCar(this.cars);
     this.validation.roundSetting(this.round);
   }
@@ -40,6 +41,12 @@ export class Game {
       }
     });
     return winners;
+  }
+
+  #getNewCars(carNames) {
+    return carNames
+      .split(CAR_NAME_SEPARATOR)
+      .map((name) => new Car(name.trim()));
   }
 
   #searchMax() {
@@ -63,5 +70,12 @@ export function validationGame() {
       throw new Error(ERROR.GAME.ROUND);
     }
   };
-  return { duplicatedCar, roundSetting };
+
+  const ableCarCountToPlay = (cars) => {
+    if (cars.length <= 1) {
+      throw new Error(ERROR.GAME.ABLE);
+    }
+  };
+
+  return { duplicatedCar, roundSetting, ableCarCountToPlay };
 }

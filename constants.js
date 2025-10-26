@@ -9,7 +9,7 @@ export const INPUT_DESCRIPTION = {
 /**
  * Game constants
  */
-export const SEPARATOR = ',';
+export const CAR_NAME_SEPARATOR = ',';
 
 /**
  * Car constants
@@ -43,6 +43,7 @@ export const ERROR = {
   GAME: {
     DUPLICATE: '[ERROR] : 자동차 이름이 중복되었습니다.',
     ROUND: '[ERROR] : 라운드 설정이 필요합니다.',
+    ABLE: '[ERROR] : 게임을 시작하기 위해서는 두 개 이상의 차량이  필요합니다.',
   },
   CAR: {
     NAME: {

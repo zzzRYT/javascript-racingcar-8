@@ -57,13 +57,19 @@ describe('ValidationGame 단위 테스트', () => {
   test('자동차가 중복된 경우 에러를 발생시킨다.', () => {
     const cars = [{ name: 'pobi' }, { name: 'pobi' }];
 
-    expect(() => validationCar.duplicatedCar(cars)).toThrow();
+    expect(() => validationCar.duplicatedCar(cars)).toThrow('[ERROR]');
   });
 
   test.each([{ round: 0 }, { round: -1 }, { round: -10 }])(
     'round가 0 이하인 경우 에러를 발생시킨다. : $round',
     ({ round }) => {
-      expect(() => validationCar.roundSetting(round)).toThrow();
+      expect(() => validationCar.roundSetting(round)).toThrow('[ERROR');
     }
   );
+
+  test('자동차가 한 대일 경우 게임을 시작할 수 없다.', () => {
+    const cars = ['pobi'];
+
+    expect(() => validationCar.ableCarCountToPlay(cars)).toThrow('[ERROR]');
+  });
 });
