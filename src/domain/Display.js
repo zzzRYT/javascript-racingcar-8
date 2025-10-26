@@ -1,6 +1,6 @@
 import { Console } from '@woowacourse/mission-utils';
 
-import { WINNER_DESCRIPTION, WINNER_SEPARATOR } from '../../constants.js';
+import { DISPLAY } from '../../constants.js';
 
 export class Display {
   resultStart() {
@@ -16,7 +16,7 @@ export class Display {
 
   winners(winners) {
     const winnerString = this.#combineMultipleWinner(winners);
-    Console.print(`${WINNER_DESCRIPTION} : ${winnerString}`);
+    Console.print(`${DISPLAY.WINNER.DESCRIPTION} : ${winnerString}`);
   }
 
   #repeatMoveBar(move) {
@@ -26,7 +26,7 @@ export class Display {
 
   #combineMultipleWinner(winners) {
     if (this.#isMultipleWinner(winners)) {
-      return winners.join(WINNER_SEPARATOR);
+      return winners.join(DISPLAY.WINNER.SEPARATOR);
     }
     return winners[0];
   }

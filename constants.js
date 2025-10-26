@@ -18,10 +18,14 @@ export const MAX_LENGTH_CAR_NAME = 5;
 export const NAME_ALLOWED = /^[ㄱ-ㅎ가-힣a-zA-Z0-9]*$/;
 
 /**
- * View constants
+ * Display constants
  */
-export const WINNER_DESCRIPTION = '최종 우승자';
-export const WINNER_SEPARATOR = ', ';
+export const DISPLAY = {
+  WINNER: {
+    DESCRIPTION: '최종 우승자',
+    SEPARATOR: ', ',
+  },
+};
 
 /**
  * utils constants
@@ -30,4 +34,20 @@ export const REGEX = {
   KO: /[ㄱ-ㅎ|가-힣|ㅏ-ㅣ]/g,
   EN: /[a-zA-Z]/g,
   NUM: /[0-9]/g,
+};
+
+/**
+ * Error constants
+ */
+export const ERROR = {
+  GAME: {
+    DUPLICATE: '[ERROR] : 자동차 이름이 중복되었습니다.',
+    ROUND: '[ERROR] : 라운드 설정이 필요합니다.',
+  },
+  CAR: {
+    NAME: {
+      LENGTH: '[ERROR] : 자동차 이름은 1자 이상, 5자 이하여야 합니다.',
+      ALLOWED: '[ERROR] : 자동차 이름은 한글 혹은 영어여야 합니다.',
+    },
+  },
 };

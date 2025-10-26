@@ -1,6 +1,6 @@
 import { MissionUtils } from '@woowacourse/mission-utils';
 
-import { MAX_LENGTH_CAR_NAME, NAME_ALLOWED } from '../../constants.js';
+import { ERROR, MAX_LENGTH_CAR_NAME, NAME_ALLOWED } from '../../constants.js';
 
 export class Car {
   constructor(name) {
@@ -33,13 +33,13 @@ export class Car {
 export function validationCar() {
   const nameLength = (name) => {
     if (name.length <= 0 || name.length > MAX_LENGTH_CAR_NAME) {
-      throw new Error('[ERROR] : 자동차 이름은 1자 이상, 5자 이하여야 합니다.');
+      throw new Error(ERROR.CAR.NAME.LENGTH);
     }
   };
 
   const nameAllowed = (name) => {
     if (!NAME_ALLOWED.test(name)) {
-      throw new Error('[ERROR] : 자동차 이름은 한글 혹은 영어여야 합니다.');
+      throw new Error(ERROR.CAR.NAME.ALLOWED);
     }
   };
 

@@ -1,12 +1,12 @@
 import { Car } from './Car.js';
 
-import { SEPARATOR } from '../../constants.js';
+import { ERROR, SEPARATOR } from '../../constants.js';
 
 export class Game {
   constructor() {
+    this.validation = validationGame();
     this.cars = [];
     this.round = 0;
-    this.validation = validationGame();
   }
 
   getCars() {
@@ -54,13 +54,13 @@ export function validationGame() {
     const nameSet = new Set(names);
 
     if (names.length !== nameSet.size) {
-      throw new Error('[ERROR] : 자동차 이름이 중복되었습니다.');
+      throw new Error(ERROR.GAME.DUPLICATE);
     }
   };
 
   const roundSetting = (round) => {
     if (round <= 0) {
-      throw new Error('[ERROR] : 라운드 설정이 필요합니다.');
+      throw new Error(ERROR.GAME.ROUND);
     }
   };
   return { duplicatedCar, roundSetting };
