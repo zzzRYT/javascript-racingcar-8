@@ -1,12 +1,12 @@
 import { getLogSpy } from './ApplicationTest';
 
-import { View } from '../src/domain/View';
+import { Display } from '../src/domain/Display';
 
 describe('View Class 단위 테스트', () => {
-  let view;
+  let display;
 
   beforeEach(() => {
-    view = new View();
+    display = new Display();
   });
 
   test('각 자동차의 이름과 현재 전진 상태를 출력한다.', () => {
@@ -18,7 +18,7 @@ describe('View Class 단위 테스트', () => {
     const logSpy = getLogSpy();
     const expectedLogs = ['pobi : --', 'woni : ', 'jun : ---'];
 
-    view.displayRound(cars);
+    display.round(cars);
 
     expectedLogs.forEach((log) => {
       expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(log));
@@ -39,7 +39,7 @@ describe('View Class 단위 테스트', () => {
   ])('$description', ({ winners, result }) => {
     const logSpy = getLogSpy();
 
-    view.displayWinners(winners);
+    display.winners(winners);
 
     expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(result));
   });

@@ -2,19 +2,19 @@ import { Console } from '@woowacourse/mission-utils';
 
 import { WINNER_DESCRIPTION, WINNER_SEPARATOR } from '../../constants.js';
 
-export class View {
-  displayResultStart() {
+export class Display {
+  resultStart() {
     Console.print('\n실행 결과');
   }
 
-  displayRound(cars) {
+  round(cars) {
     cars.forEach((car) => {
       Console.print(`${car.name} : ${this.#repeatMoveBar(car.move)}`);
     });
     Console.print('');
   }
 
-  displayWinners(winners) {
+  winners(winners) {
     const winnerString = this.#combineMultipleWinner(winners);
     Console.print(`${WINNER_DESCRIPTION} : ${winnerString}`);
   }

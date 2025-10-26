@@ -1,6 +1,6 @@
 import App from '../src/App.js';
 import { MissionUtils } from '@woowacourse/mission-utils';
-import { View } from '../src/domain/View.js';
+import { Display } from '../src/domain/Display.js';
 import { Game } from '../src/domain/Game.js';
 
 export const mockQuestions = (inputs) => {
@@ -31,8 +31,8 @@ describe('자동차 경주', () => {
 
   beforeEach(() => {
     const game = new Game();
-    const view = new View();
-    app = new App(game, view);
+    const display = new Display();
+    app = new App(game, display);
   });
 
   test('기능 테스트', async () => {

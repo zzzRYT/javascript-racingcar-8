@@ -3,9 +3,9 @@ import { Console } from '@woowacourse/mission-utils';
 import { INPUT_DESCRIPTION } from '../constants.js';
 
 class App {
-  constructor(game, view) {
+  constructor(game, display) {
     this.game = game;
-    this.view = view;
+    this.display = display;
   }
 
   async run() {
@@ -19,14 +19,14 @@ class App {
 
       this.game.setting(carNames, gameRound);
 
-      this.view.displayResultStart();
+      this.display.resultStart();
       for (let i = 0; i < this.game.getRound(); i++) {
         const currentCars = this.game.playRound();
-        this.view.displayRound(currentCars);
+        this.display.round(currentCars);
       }
 
       const winners = this.game.getWinners();
-      this.view.displayWinners(winners);
+      this.display.winners(winners);
     } catch (error) {
       throw error;
     }
