@@ -30,9 +30,7 @@ describe('자동차 경주', () => {
   let app;
 
   beforeEach(() => {
-    const game = new Game();
-    const display = new Display();
-    app = new App(game, display);
+    app = new App();
   });
 
   test('기능 테스트', async () => {
